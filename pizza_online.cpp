@@ -27,7 +27,11 @@ PizzaOnline &PizzaOnline::operator=(const PizzaOnline &pizza) {
 
 std::istream &operator>>(std::istream &in, PizzaOnline &pizza) {
   in >> dynamic_cast<Pizza &>(pizza);
-  in >> pizza.m_distanta;
+
+  std::string str; /* vom retine inputul intr-un string pe care vom incerca sa
+                    il convertim intr-un double */
+  in >> str;
+  pizza.m_distanta = StringToInt(str);
 
   return in;
 }

@@ -9,7 +9,9 @@ int main() {
   /* std::cin >> ing; */
   /* std::cout << ing; */
 
-  /* PizzaOnline p; */
+  /* Pizza p1; */
+  /* PizzaOnline p2; */
+  /* std::cout << typeid(p1).name() << " " << typeid(p2).name(); */
   /* std::cout << "citire pizza:\n"; */
   /* std::cin >> p; */
   /* std::cout << p; */
@@ -46,23 +48,43 @@ int main() {
 
       /* verificam daca comanda este valida */
       if (!(map_comenzi_pizza.find(tip_comanda) != map_comenzi_pizza.end()))
-        break;
-
-      /* TODO schimba aici dintr-un if/else intr-un switch bazat pe un enum
-       * class de tip comenzi, ar fi mai util daca se mai adauga tipuri de pizza
-       */
+        continue;
 
       switch (map_comenzi_pizza[tip_comanda]) {
       case PizzaType::LOCAL:
         pizza = new Pizza();
-        iss_comanda >> *pizza;
-        meniu_pizza_local += pizza;
+        try {
+          iss_comanda >> *pizza;
+          meniu_pizza_local += pizza;
+        } catch (const NotAnInt &e) {
+          std::cout << e.what() << '\n';
+        } catch (const NotADouble &e) {
+          std::cout << e.what() << '\n';
+        } catch (const Overflow &e) {
+          std::cout << e.what() << '\n';
+        } catch (const NotZero &e) {
+          std::cout << e.what() << '\n';
+        } catch (const std::invalid_argument &e) {
+          std::cout << e.what() << '\n';
+        }
         break;
 
       case PizzaType::ONLINE:
         pizza = new PizzaOnline();
-        iss_comanda >> *dynamic_cast<PizzaOnline *>(pizza);
-        meniu_pizza_online += dynamic_cast<PizzaOnline *>(pizza);
+        try {
+          iss_comanda >> *dynamic_cast<PizzaOnline *>(pizza);
+          meniu_pizza_online += dynamic_cast<PizzaOnline *>(pizza);
+        } catch (const NotAnInt &e) {
+          std::cout << e.what() << '\n';
+        } catch (const NotADouble &e) {
+          std::cout << e.what() << '\n';
+        } catch (const Overflow &e) {
+          std::cout << e.what() << '\n';
+        } catch (const NotZero &e) {
+          std::cout << e.what() << '\n';
+        } catch (const std::invalid_argument &e) {
+          std::cout << e.what() << '\n';
+        }
         break;
 
       default:

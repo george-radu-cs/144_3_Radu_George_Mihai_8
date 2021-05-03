@@ -27,8 +27,14 @@ Ingredient &Ingredient::operator=(const Ingredient &ing) {
 }
 
 std::istream &operator>>(std::istream &in, Ingredient &ing) {
-  /* TODO add here a try catch  */
-  in >> ing.m_denumire >> ing.m_cantitate >> ing.m_pret_unitar;
+  std::string str; /* vom retine inputul intr-un string pe care vom incerca sa
+                    il convertim intr-un double */
+
+  in >> ing.m_denumire;
+  in >> str;
+  ing.m_cantitate = StringToDouble(str);
+  in >> str;
+  ing.m_pret_unitar = StringToDouble(str);
 
   return in;
 }

@@ -75,7 +75,3 @@ rezulte valoarea totala incasata din vanzarea acestora.
 - completeaza fisierul de intrare cu mai multe comenzi
 - adauga inca o specializare de pizza vegetariana
 - transforma codul din main intr-o clasa singleton demo
-- trateaza exceptiile(ex: in fisier avem date double, daca nu se gaseste un
-double atunci se foloseste 0, astfel se introduce o comanda eronata in memorie
-care este vazuta drept valida, am vrea sa nu includem comenzi eronate sau sa
-incercam sa le corectam)

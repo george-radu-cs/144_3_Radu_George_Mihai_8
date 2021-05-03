@@ -1,28 +1,118 @@
-Cheie: 2 valoare: Lista ingrediente pizza:
+Cheie: 8 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.02
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.001
+gorngozola 100 0.05
+mozzarella 120 0.4
+parmezan 60 0.05
+ricotta 100 0.03
+rosii_pasate 160 0.03
+oregano 2 0.3
+Pret: 87.991
+
+Cheie: 7 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.002
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.01
+pupla_rosii 400 0.02
+masline 40 0.02
+usturoi 3 1.5
+rosii 70 0.05
+busuioc 3 0.5
+mozzarella 60 0.04
+Pret: 39.98
+
+Cheie: 6 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.02
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.001
+gorngozola 100 0.05
+mozzarella 120 0.4
+parmezan 60 0.05
+ricotta 100 0.03
+rosii_pasate 160 0.03
+oregano 2 0.3
+Pret: 87.991
+
+Cheie: 5 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.002
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.01
+pupla_rosii 400 0.02
+masline 40 0.02
+usturoi 3 1.5
+rosii 70 0.05
+busuioc 3 0.5
+mozzarella 60 0.04
+Pret: 39.98
+
+Cheie: 4 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.02
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.001
+gorngozola 100 0.05
+mozzarella 120 0.4
+parmezan 60 0.05
+ricotta 100 0.03
+rosii_pasate 160 0.03
+oregano 2 0.3
+Pret: 87.991
+
+Cheie: 3 valoare: Lista ingrediente pizza:
 faina 300 0.03
 apa 280 0.01
 drojdie 10 0.02
 conserve_ton 2 3.3
 mozzarella 200 0.08
 rosii_cherry 200 0.01
-rosii_pasate 200 0.015
+rosii_pasate 200 0.05
 masline 70 0.05
 ulei_masline 3 0.9
 sare 0.01 0.01
-Pret: 60.8001
+Pret: 67.8001
 
-Cheie: 1 valoare: Lista ingrediente pizza:
+Cheie: 2 valoare: Lista ingrediente pizza:
 faina 400 0.03
 apa 280 0.01
 drojdie 10 0.02
 conserve_ton 2 3.3
 mozzarella 200 0.08
 rosii_cherry 200 0.01
-rosii_pasate 200 0.015
+rosii_pasate 200 0.05
 masline 70 0.05
 ulei_masline 3 0.9
 sare 0.01 0.01
-Pret: 63.8001
+Pret: 70.8001
+
+Cheie: 1 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.02
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.001
+gorngozola 100 0.05
+mozzarella 120 0.4
+parmezan 60 0.05
+ricotta 100 0.03
+rosii_pasate 160 0.03
+oregano 2 0.3
+Pret: 87.991
 
 Cheie: 0 valoare: Lista ingrediente pizza:
 faina 1500 0.03
@@ -31,10 +121,10 @@ drojdie 10 0.02
 conserve_ton 2 3.3
 mozzarella 200 0.08
 rosii_cherry 200 0.01
-rosii_pasate 200 0.015
+rosii_pasate 200 0.05
 masline 70 0.05
 ulei_masline 3 0.9
 sare 0.01 0.01
-Pret: 96.8001
+Pret: 103.8
 
-Venit: 221.4
+Venit: 674.324

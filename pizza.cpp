@@ -48,8 +48,11 @@ Pizza &Pizza::operator=(const Pizza &pizza) {
 }
 
 std::istream &operator>>(std::istream &in, Pizza &pizza) {
-  int n; /* nr ingrediente */
-  in >> n;
+  std::string str; /* vom retine inputul intr-un string pe care vom incerca sa
+                      il convertim intr-un int */
+  in >> str;
+  int n = StringToInt(str); /* nr ingrediente */
+
   for (int i = 0; i < n; i++) {
     Ingredient *ing = new Ingredient();
     in >> *ing;

@@ -2,7 +2,7 @@
 #define INGREDIENT_H
 
 #include <iostream>
-#include <string>
+#include "functions.h"
 
 class Ingredient {
 private:
