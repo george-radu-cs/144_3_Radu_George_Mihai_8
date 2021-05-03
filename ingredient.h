@@ -1,3 +1,6 @@
+#ifndef INGREDIENT_H
+#define INGREDIENT_H
+
 #include <iostream>
 #include <string>
 
@@ -34,3 +37,5 @@ public:
 
   friend std::ostream &operator<<(std::ostream &out, const Ingredient &ing);
 };
+
+#endif

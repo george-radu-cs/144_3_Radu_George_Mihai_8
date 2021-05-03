@@ -1,0 +1,10 @@
+.git
+.idea
+CMakeFiles/
+Testing/
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+144_3_Radu_George_Mihai_8
+144_3_Radu_George_Mihai_8.cbp
+lib*

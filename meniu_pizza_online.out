@@ -1,0 +1,29 @@
+Cheie: 1 valoare: Lista ingrediente pizza:
+faina 500 0.03
+apa 280 0.01
+drojdie 10 0.02
+conserve_ton 2 3.3
+mozzarella 200 0.08
+rosii_cherry 200 0.01
+rosii_pasate 200 0.015
+masline 70 0.05
+ulei_masline 3 0.9
+sare 0.01 0.01
+Pret: 73.4801
+Distanta: 20
+
+Cheie: 0 valoare: Lista ingrediente pizza:
+faina 100 0.03
+apa 280 0.01
+drojdie 10 0.02
+conserve_ton 2 3.3
+mozzarella 200 0.08
+rosii_cherry 200 0.01
+rosii_pasate 200 0.015
+masline 70 0.05
+ulei_masline 3 0.9
+sare 0.01 0.01
+Pret: 60.2801
+Distanta: 20
+
+Venit: 133.76

@@ -2,5 +2,5 @@
 
 class Produs{
 public:
-    virtual double pret() = 0;
+    virtual double pret() const = 0;
 };

@@ -62,7 +62,20 @@ structură de date, alocata dinamic.
 tipurile de pizza vegetariana într-un document contabil separat din care sa
 rezulte valoarea totala incasata din vanzarea acestora.
 
+## Format fisier de intrare
+
+- pe fiecare linie se afla cate o comanda de pizza
+- la inceputul fiecarei linii se afla un string care specifica tipul comenzii(local/online)
+- indiferent de comanda citim numarul ingredientelo n, trebuie sa fie de tip int
+- pentru fiecare ingredient ii citim denumirea, cantitatea si pretul unitar
+- daca comanda este online la final citim distanta
+
 ## TODO
 
-- adauga fisier de intrare pentru un meniu
-- adauga fisier de intrare pentru comenzi
+- completeaza fisierul de intrare cu mai multe comenzi
+- adauga inca o specializare de pizza vegetariana
+- transforma codul din main intr-o clasa singleton demo
+- trateaza exceptiile(ex: in fisier avem date double, daca nu se gaseste un
+double atunci se foloseste 0, astfel se introduce o comanda eronata in memorie
+care este vazuta drept valida, am vrea sa nu includem comenzi eronate sau sa
+incercam sa le corectam)

@@ -1,20 +1,23 @@
-#include "produs.h"
+#ifndef PIZZA_H
+#define PIZZA_H
+
 #include "ingredient.h"
+#include "produs.h"
 #include <vector>
 
 class Pizza : public Produs {
-private:
-  std::vector<Ingredient> ingrediente;
-  constexpr static double pret_manopera = 15.0;
+protected:
+  std::vector<Ingredient *> m_ingrediente;
+  constexpr static double m_pret_manopera = 15.0;
 
 public:
   Pizza();
 
   Pizza(const Pizza &pizza);
 
-  ~Pizza();
+  virtual ~Pizza();
 
-  double pret() override;
+  virtual double pret() const override;
 
   Pizza &operator=(const Pizza &pizza);
 
@@ -22,3 +25,5 @@ public:
 
   friend std::ostream &operator<<(std::ostream &out, const Pizza &pizza);
 };
+
+#endif

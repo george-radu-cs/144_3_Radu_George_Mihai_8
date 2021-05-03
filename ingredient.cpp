@@ -27,14 +27,14 @@ Ingredient &Ingredient::operator=(const Ingredient &ing) {
 }
 
 std::istream &operator>>(std::istream &in, Ingredient &ing) {
+  /* TODO add here a try catch  */
   in >> ing.m_denumire >> ing.m_cantitate >> ing.m_pret_unitar;
 
   return in;
 }
 
 std::ostream &operator<<(std::ostream &out, const Ingredient &ing) {
-  out << ing.m_denumire << " " << ing.m_cantitate << " " << ing.m_pret_unitar
-      << "\n";
+  out << ing.m_denumire << " " << ing.m_cantitate << " " << ing.m_pret_unitar;
 
   return out;
 }
