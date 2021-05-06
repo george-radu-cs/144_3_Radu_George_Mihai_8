@@ -72,4 +72,4 @@ rezulte valoarea totala incasata din vanzarea acestora.
 
 ## TODO
 
-- adauga inca o specializare de pizza vegetariana
+- ...

@@ -3,7 +3,7 @@
 Pizza::Pizza() {}
 
 Pizza::Pizza(const Pizza &pizza) {
-  for (const auto &ing : m_ingrediente) {
+  for (const auto &ing : pizza.m_ingrediente) {
     Ingredient *new_ing = new Ingredient();
     new_ing->setDenumire(ing->getDenumire());
     new_ing->setCantitate(ing->getCantitate());
@@ -36,7 +36,7 @@ double Pizza::pret() const {
 
 Pizza &Pizza::operator=(const Pizza &pizza) {
   if (this != &pizza) {
-    for (const auto &ing : m_ingrediente) {
+    for (const auto &ing : pizza.m_ingrediente) {
       Ingredient *new_ing = new Ingredient();
       new_ing->setDenumire(ing->getDenumire());
       new_ing->setCantitate(ing->getCantitate());

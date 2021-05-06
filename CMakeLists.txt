@@ -17,7 +17,12 @@ add_library(
   pizza.h
   pizza.cpp
   pizza_online.h
-  pizza_online.cpp)
+  pizza_online.cpp
+  pizza_vegetariana_locala.h
+  pizza_vegetariana_locala.cpp
+  pizza_vegetariana_online.h
+  pizza_vegetariana_online.cpp
+  )
 
 add_library(
   meniu

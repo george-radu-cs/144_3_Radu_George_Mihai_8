@@ -2,7 +2,8 @@
 #define MENIU_TEMPLATE_H
 
 #include "comenzi_pizza_enum.h"
-#include "pizza_online.h"
+#include "pizza_vegetariana_locala.h"
+#include "pizza_vegetariana_online.h"
 #include <sstream>
 #include <unordered_map>
 

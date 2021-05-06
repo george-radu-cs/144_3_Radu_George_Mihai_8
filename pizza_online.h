@@ -14,7 +14,7 @@ public:
    * acelasi tip */
   PizzaOnline(const PizzaOnline &pizza);
 
-  ~PizzaOnline();
+  virtual ~PizzaOnline();
 
   /* calculeaza pretul pizzei: pretul pizzei daca era servita local + 5% din
    * acest pret la fiecare 10Km din distanta de livrare */

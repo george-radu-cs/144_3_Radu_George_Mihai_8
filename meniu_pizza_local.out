@@ -1,4 +1,16 @@
-Cheie: 13 valoare: Lista ingrediente pizza:
+Cheie: 18 valoare: Lista ingrediente pizza:
+faina 300 0.03
+ulei_masline 3 0.2
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.04
+
+Cheie: 17 valoare: Lista ingrediente pizza:
 faina 350 0.01
 drojdie 7 0.01
 apa 240 0.02
@@ -12,6 +24,62 @@ ricotta 100 0.03
 rosii_pasate 160 0.03
 oregano 2 0.3
 Pret: 87.991
+
+Cheie: 16 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.002
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.01
+pulpa_rosii 400 0.02
+masline 40 0.02
+usturoi 3 1.5
+rosii 70 0.05
+busuioc 3 0.5
+mozzarella 60 0.04
+Pret: 39.98
+
+Cheie: 15 valoare: Lista ingrediente pizza:
+faina 300 0.03
+ulei_masline 3 0.2
+lingurita_zahar 1 0.05
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.09
+
+Cheie: 14 valoare: Lista ingrediente pizza:
+faina 350 0.01
+drojdie 7 0.01
+apa 240 0.02
+lingurita_zahar 2 0.05
+ulei_masline 2 0.06
+lingurita_sare 1 0.001
+gorngozola 100 0.05
+mozzarella 120 0.4
+parmezan 60 0.05
+ricotta 100 0.03
+rosii_pasate 160 0.03
+oregano 2 0.3
+Pret: 87.991
+
+Cheie: 13 valoare: Lista ingrediente pizza:
+faina 300 0.03
+ulei_masline 3 0.2
+lingurita_zahar 1 0.05
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.09
 
 Cheie: 0 valoare: Lista ingrediente pizza:
 faina 1500 0.03
@@ -27,6 +95,18 @@ sare 0.01 0.01
 Pret: 103.8
 
 Cheie: 1 valoare: Lista ingrediente pizza:
+faina 300 0.03
+ulei_masline 3 0.2
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.04
+
+Cheie: 2 valoare: Lista ingrediente pizza:
 faina 350 0.01
 drojdie 7 0.01
 apa 240 0.02
@@ -41,7 +121,7 @@ rosii_pasate 160 0.03
 oregano 2 0.3
 Pret: 87.991
 
-Cheie: 2 valoare: Lista ingrediente pizza:
+Cheie: 3 valoare: Lista ingrediente pizza:
 faina 400 0.03
 apa 280 0.01
 drojdie 10 0.02
@@ -54,7 +134,7 @@ ulei_masline 3 0.9
 sare 0.01 0.01
 Pret: 70.8001
 
-Cheie: 3 valoare: Lista ingrediente pizza:
+Cheie: 4 valoare: Lista ingrediente pizza:
 faina 300 0.03
 apa 280 0.01
 drojdie 10 0.02
@@ -67,7 +147,19 @@ ulei_masline 3 0.9
 sare 0.01 0.01
 Pret: 67.8001
 
-Cheie: 4 valoare: Lista ingrediente pizza:
+Cheie: 5 valoare: Lista ingrediente pizza:
+faina 300 0.03
+ulei_masline 3 0.2
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.04
+
+Cheie: 6 valoare: Lista ingrediente pizza:
 faina 350 0.01
 drojdie 7 0.01
 apa 240 0.02
@@ -82,7 +174,19 @@ rosii_pasate 160 0.03
 oregano 2 0.3
 Pret: 87.991
 
-Cheie: 5 valoare: Lista ingrediente pizza:
+Cheie: 7 valoare: Lista ingrediente pizza:
+faina 300 0.03
+ulei_masline 3 0.2
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.04
+
+Cheie: 8 valoare: Lista ingrediente pizza:
 faina 350 0.01
 drojdie 7 0.01
 apa 240 0.002
@@ -97,48 +201,21 @@ busuioc 3 0.5
 mozzarella 60 0.04
 Pret: 39.98
 
-Cheie: 6 valoare: Lista ingrediente pizza:
-faina 300 0.03
-ulei_masline 3 0.2
-lingurita_zahar 1 0.05
-plic_drojdie 1 0.5
-sos_marinara 20 0.2
-arderi 50 0.04
-masline 30 0.12
-ciuperci 75 0.05
-branza_tofu 40 0.03
-oregano 30 0.013
-Pret: 40.09
-
-Cheie: 7 valoare: Lista ingrediente pizza:
-faina 300 0.03
-ulei_masline 3 0.2
-lingurita_zahar 1 0.05
-plic_drojdie 1 0.5
-sos_marinara 20 0.2
-arderi 50 0.04
-masline 30 0.12
-ciuperci 75 0.05
-branza_tofu 40 0.03
-oregano 30 0.013
-Pret: 40.09
-
-Cheie: 8 valoare: Lista ingrediente pizza:
-faina 300 0.03
-ulei_masline 3 0.2
-lingurita_zahar 1 0.05
-plic_drojdie 1 0.5
-sos_marinara 20 0.2
-arderi 50 0.04
-masline 30 0.12
-ciuperci 75 0.05
-branza_tofu 40 0.03
-oregano 30 0.013
-Pret: 40.09
-
 Cheie: 9 valoare: Lista ingrediente pizza:
 faina 300 0.03
 ulei_masline 3 0.2
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.04
+
+Cheie: 10 valoare: Lista ingrediente pizza:
+faina 300 0.03
+ulei_masline 3 0.2
 lingurita_zahar 1 0.05
 plic_drojdie 1 0.5
 sos_marinara 20 0.2
@@ -148,21 +225,6 @@ ciuperci 75 0.05
 branza_tofu 40 0.03
 oregano 30 0.013
 Pret: 40.09
-
-Cheie: 10 valoare: Lista ingrediente pizza:
-faina 350 0.01
-drojdie 7 0.01
-apa 240 0.02
-lingurita_zahar 2 0.05
-ulei_masline 2 0.06
-lingurita_sare 1 0.001
-gorngozola 100 0.05
-mozzarella 120 0.4
-parmezan 60 0.05
-ricotta 100 0.03
-rosii_pasate 160 0.03
-oregano 2 0.3
-Pret: 87.991
 
 Cheie: 11 valoare: Lista ingrediente pizza:
 faina 300 0.03
@@ -178,18 +240,16 @@ oregano 30 0.013
 Pret: 40.09
 
 Cheie: 12 valoare: Lista ingrediente pizza:
-faina 350 0.01
-drojdie 7 0.01
-apa 240 0.002
-lingurita_zahar 2 0.05
-ulei_masline 2 0.06
-lingurita_sare 1 0.01
-pulpa_rosii 400 0.02
-masline 40 0.02
-usturoi 3 1.5
-rosii 70 0.05
-busuioc 3 0.5
-mozzarella 60 0.04
-Pret: 39.98
+faina 300 0.03
+ulei_masline 3 0.2
+lingurita_zahar 1 0.05
+plic_drojdie 1 0.5
+sos_marinara 20 0.2
+arderi 50 0.04
+masline 30 0.12
+ciuperci 75 0.05
+branza_tofu 40 0.03
+oregano 30 0.013
+Pret: 40.09
 
-Venit: 874.774
+Venit: 1074.97

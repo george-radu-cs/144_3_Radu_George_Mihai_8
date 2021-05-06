@@ -3,7 +3,26 @@
 #include <fstream>
 
 int main() {
-  /* teste */
+  //////////////////////////////////////////////////
+  /********************** teste *******************/
+  //////////////////////////////////////////////////
+
+  /* std::ifstream fin("comenzi.in"); /1* de unde vom citi comenzile *1/ */
+  /* PizzaVegetarianaLocala *pizza = new PizzaVegetarianaLocala(); */
+  /* std::string tip; */
+  /* fin >> tip; */
+  /* fin >> *pizza; */
+  /* PizzaVegetarianaLocala *pizza2 = new PizzaVegetarianaLocala(*pizza); */
+  /* PizzaVegetarianaLocala *pizza3 = new PizzaVegetarianaLocala(); */
+  /* *pizza3 = *pizza; */
+  /* std::cout << *pizza << *pizza2 << *pizza3; */
+  /* delete pizza; */
+  /* std::cout << *pizza2; */
+  /* delete pizza2; */
+  /* std::cout << *pizza3; */
+  /* delete pizza3; */
+
+  /* fin.close(); */
   /* Ingredient ing; */
   /* std::cin >> ing; */
   /* std::cout << ing; */
@@ -19,10 +38,15 @@ int main() {
   /* comenzi >> meniu_pizza_local; */
   /* comenzi >> meniu_pizza_online; */
 
+  //////////////////////////////////////////////////
+  /******************* program ********************/
+  //////////////////////////////////////////////////
+
   /* vom avea 2 meniuri pentru comenzi locale si online
    * intrucat o sa avem 2 rapoarte diferite de facut */
   Meniu<Pizza> meniu_pizza_local;
   Meniu<PizzaOnline> meniu_pizza_online;
+  Meniu<PizzaVegetarianaOnline> meniu_pizza_veg_online;
 
   std::ifstream comenzi("comenzi.in"); /* de unde vom citi comenzile */
   if (!comenzi.is_open()) { /* fisierul nu exista sau nu a putut fi deschis  */
@@ -72,7 +96,6 @@ int main() {
         } catch (const NotZero &e) {
           std::cout << e.what() << '\n';
         } catch (const std::invalid_argument &e) {
-          std::cout << comanda;
           std::cout << e.what() << '\n';
         }
         break;
@@ -82,6 +105,27 @@ int main() {
         try {
           iss_comanda >> *dynamic_cast<PizzaOnline *>(pizza);
           meniu_pizza_online += dynamic_cast<PizzaOnline *>(pizza);
+        } catch (std::exception &e) { /* prinde toate tipurile de exceptii */
+          std::cout << e.what() << '\n';
+        }
+        break;
+
+      case PizzaType::VEGETARIANA_LOCALA:
+        pizza = new PizzaVegetarianaLocala();
+        try {
+          iss_comanda >> *dynamic_cast<PizzaVegetarianaLocala *>(pizza);
+          meniu_pizza_local += dynamic_cast<PizzaVegetarianaLocala *>(pizza);
+        } catch (const std::invalid_argument &e) {
+          std::cout << e.what() << '\n';
+        }
+        break;
+
+      case PizzaType::VEGETARIANA_ONLINE:
+        pizza = new PizzaVegetarianaOnline();
+        try {
+          iss_comanda >> *dynamic_cast<PizzaVegetarianaOnline *>(pizza);
+          meniu_pizza_veg_online +=
+              dynamic_cast<PizzaVegetarianaOnline *>(pizza);
         } catch (std::exception &e) { /* prinde toate tipurile de exceptii */
           std::cout << e.what() << '\n';
         }
@@ -116,6 +160,17 @@ int main() {
     fo_meniu_pizza_online << meniu_pizza_online;
   }
   fo_meniu_pizza_online.close();
+
+  std::ofstream fo_meniu_pizza_veg_online("meniu_pizza_vegetariana_online.out");
+  if (!fo_meniu_pizza_veg_online.is_open()) {
+    /* fisierul nu exista sau nu a putut fi deschis */
+    std::cout << "EROARE! Nu a putut fi creat raportul pentru pizza "
+                 "vegetariana servita online\n";
+  } else {
+    /* scrie raportul pentru pizza locala */
+    fo_meniu_pizza_veg_online << meniu_pizza_veg_online;
+  }
+  fo_meniu_pizza_veg_online.close();
 
   return 0;
 }
