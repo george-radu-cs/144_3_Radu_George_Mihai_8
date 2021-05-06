@@ -20,14 +20,19 @@ double PizzaOnline::pret() const {
 
 PizzaOnline &PizzaOnline::operator=(const PizzaOnline &pizza) {
   if (this != &pizza) {
+    Pizza::operator=(pizza);
+    this->m_distanta = pizza.m_distanta;
   }
 
   return *this;
 }
 
 std::istream &operator>>(std::istream &in, PizzaOnline &pizza) {
+  /* citim informatiile despre pizza locala */
   in >> dynamic_cast<Pizza &>(pizza);
 
+  /* citim restul de informatii specifice unei pizza online, i.e. distanta de
+   * livrare */
   std::string str; /* vom retine inputul intr-un string pe care vom incerca sa
                     il convertim intr-un double */
   in >> str;
@@ -37,7 +42,10 @@ std::istream &operator>>(std::istream &in, PizzaOnline &pizza) {
 }
 
 std::ostream &operator<<(std::ostream &out, const PizzaOnline &pizza) {
+  /* afisam informatiile pe care le afisam despre o pizza servita local   */
   out << dynamic_cast<const Pizza &>(pizza);
+
+  /* in plus afisam distanta de livrare */
   out << "Distanta: " << pizza.m_distanta << '\n';
 
   return out;

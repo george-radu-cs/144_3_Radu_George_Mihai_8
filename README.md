@@ -72,6 +72,4 @@ rezulte valoarea totala incasata din vanzarea acestora.
 
 ## TODO
 
-- completeaza fisierul de intrare cu mai multe comenzi
 - adauga inca o specializare de pizza vegetariana
-- transforma codul din main intr-o clasa singleton demo

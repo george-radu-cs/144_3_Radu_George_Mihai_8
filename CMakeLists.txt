@@ -2,9 +2,9 @@ cmake_minimum_required (VERSION 3.5)
 
 project(144_3_Radu_George_Mihai_8 CXX)
 
-#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++14")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++14")
 
-set(SOURCES comenzi_pizza_enum.h exceptions.h functions.h functions.cpp)
+set(SOURCES exceptions.h functions.h functions.cpp)
   
 add_library(
   ingredient

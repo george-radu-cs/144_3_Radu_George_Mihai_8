@@ -1,7 +1,6 @@
 #include "comenzi_pizza_enum.h"
 #include "meniu.h"
 #include <fstream>
-#include <sstream>
 
 int main() {
   /* teste */
@@ -26,12 +25,12 @@ int main() {
   Meniu<PizzaOnline> meniu_pizza_online;
 
   std::ifstream comenzi("comenzi.in"); /* de unde vom citi comenzile */
-  if (!comenzi.is_open()) { /* fisierul nu exista sau nu a putut fi deschis */
+  if (!comenzi.is_open()) { /* fisierul nu exista sau nu a putut fi deschis  */
     std::cout << "Nu exista comenzi; Adaugati comenzile in fisierul meniu.in\n";
     comenzi.close();
     return -1;
-    /* comenzi >> meniu_pizza_local; */
-    /* comenzi >> meniu_pizza_online; */
+    comenzi >> meniu_pizza_local;
+    comenzi >> meniu_pizza_online;
   } else {
     std::string comanda; /* fiecare comanda se afla pe cate un rand */
 
@@ -47,8 +46,14 @@ int main() {
       iss_comanda >> tip_comanda;
 
       /* verificam daca comanda este valida */
-      if (!(map_comenzi_pizza.find(tip_comanda) != map_comenzi_pizza.end()))
+      if (!(map_comenzi_pizza.find(tip_comanda) != map_comenzi_pizza.end())) {
+        try {
+          throw InvalidPizzaType(tip_comanda);
+        } catch (const InvalidPizzaType &e) {
+          std::cout << e.what() << '\n';
+        }
         continue;
+      }
 
       switch (map_comenzi_pizza[tip_comanda]) {
       case PizzaType::LOCAL:
@@ -56,6 +61,8 @@ int main() {
         try {
           iss_comanda >> *pizza;
           meniu_pizza_local += pizza;
+        } catch (const IsEmpty &e) {
+          std::cout << e.what() << '\n';
         } catch (const NotAnInt &e) {
           std::cout << e.what() << '\n';
         } catch (const NotADouble &e) {
@@ -65,6 +72,7 @@ int main() {
         } catch (const NotZero &e) {
           std::cout << e.what() << '\n';
         } catch (const std::invalid_argument &e) {
+          std::cout << comanda;
           std::cout << e.what() << '\n';
         }
         break;
@@ -74,15 +82,7 @@ int main() {
         try {
           iss_comanda >> *dynamic_cast<PizzaOnline *>(pizza);
           meniu_pizza_online += dynamic_cast<PizzaOnline *>(pizza);
-        } catch (const NotAnInt &e) {
-          std::cout << e.what() << '\n';
-        } catch (const NotADouble &e) {
-          std::cout << e.what() << '\n';
-        } catch (const Overflow &e) {
-          std::cout << e.what() << '\n';
-        } catch (const NotZero &e) {
-          std::cout << e.what() << '\n';
-        } catch (const std::invalid_argument &e) {
+        } catch (std::exception &e) { /* prinde toate tipurile de exceptii */
           std::cout << e.what() << '\n';
         }
         break;

@@ -13,6 +13,7 @@ Pizza::Pizza(const Pizza &pizza) {
 }
 
 Pizza::~Pizza() {
+  /* stergem pointerii din vector */
   for (auto *p : m_ingrediente) {
     delete p;
   }
@@ -53,9 +54,21 @@ std::istream &operator>>(std::istream &in, Pizza &pizza) {
   in >> str;
   int n = StringToInt(str); /* nr ingrediente */
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i++) { /* incercam sa citim cele n ingrediente */
     Ingredient *ing = new Ingredient();
-    in >> *ing;
+
+    /* citirea ingredientelor ar putea intoarce un throw in cazul in care nu
+     * s-au primit informatii, caz in care avem in plus si exceptia cand numarul
+     * de ingrediente spuse ca vor fi primite nu a fost egal cu cele primite */
+    try {
+      in >> *ing;
+    } catch (const IsEmpty &e) {
+      std::cout << e.what() << " | ";
+      throw InvalidNumberIngredients("received " + std::to_string(n));
+    }
+
+    /* daca ingredientul a fost citit corect atunci il putem adauga in lista de
+     * ingrediente */
     pizza.m_ingrediente.push_back(ing);
   }
 
