@@ -1,5 +1,6 @@
 #include "comenzi_pizza_enum.h"
 #include "meniu.h"
+#include "string_tokenizer.h"
 #include <fstream>
 
 class MeniuInteractiv {
@@ -18,15 +19,88 @@ private:
     MAX_COMENZI
   };
 
+  /* citeste o lista de ingrediente dintr-un tokenizer, acesta va overi nr de
+   * ingrediente si detalii despre ingrediente */
+  std::vector<Ingredient *>
+  citesteIngrediente(StringTokenizer &comanda_str_token) {
+    /* salvam tokenurile de tip string si le prelucram */
+    std::string str_tok;
+
+    std::vector<Ingredient *> ingrediente;
+    int nr_ingrediente;
+
+    /* verificam daca mai avem tokene inainte de a lua unul */
+    if (comanda_str_token.hasMoreTokens()) {
+      str_tok = comanda_str_token.getNextToken();
+      nr_ingrediente = StringToInt(str_tok);
+    } else {
+      throw NotEnoughTokens("lipsesc nr ingrediente");
+    }
+
+    /* informatii despre un ingredient */
+    std::string nume_ingredient;
+    double cantitate, pret_unitar;
+
+    /* citim n ingrediente spuse ca le avem */
+    for (int i = 0; i < nr_ingrediente; i++) {
+      /* daca am primit mai putine ingrediente decat ar fi trebuit */
+      if (!comanda_str_token.hasMoreTokens()) {
+        throw InvalidNumberIngredients(std::to_string(nr_ingrediente));
+      }
+
+      /* incercam sa preluam denumirea ingredientului */
+      if (comanda_str_token.hasMoreTokens()) {
+        str_tok = comanda_str_token.getNextToken();
+        nume_ingredient = str_tok;
+      } else {
+        throw NotEnoughTokens("lipseste denumire ingredient");
+      }
+
+      /* incercam sa preluam cantitatea ingredientului */
+      if (comanda_str_token.hasMoreTokens()) {
+        str_tok = comanda_str_token.getNextToken();
+        cantitate = StringToDouble(str_tok);
+      } else {
+        throw NotEnoughTokens("lipseste cantitate ingredient");
+      }
+
+      /* incercam sa preluam pretul unitar al ingredientului */
+      if (comanda_str_token.hasMoreTokens()) {
+        str_tok = comanda_str_token.getNextToken();
+        pret_unitar = StringToDouble(str_tok);
+      } else {
+        throw NotEnoughTokens("lipseste pret unitar ingredient");
+      }
+
+      /* construim un obiect de tipul ingredient cu datele obtinute si il
+       * adaugam in lista de ingrediente */
+      Ingredient *ing = new Ingredient(nume_ingredient, cantitate, pret_unitar);
+      ingrediente.push_back(ing);
+    }
+
+    /* daca am primit mai multe ingrediente decat ar fi trebuit */
+    if (comanda_str_token.hasMoreTokens()) {
+      throw InvalidNumberIngredients(std::to_string(nr_ingrediente));
+    }
+
+    return ingrediente;
+  }
+
   void citesteComandaPizza(std::string &comanda) {
-    /* transformam stringul citit intr-un stream */
-    std::istringstream iss_comanda(comanda);
+    /* transformam stringul primit intr-un tokenizer de tip string din care vom
+     * scoate tokenii si ii vom procesa, delimitatorul in cazul nostru este un
+     * spatiu " " */
+    StringTokenizer comanda_str_token(comanda, " ");
 
     Pizza *pizza = nullptr; /* detalii despre o noua comanda de pizza */
 
     /* obtinem tipul comenzii */
     std::string tip_comanda;
-    iss_comanda >> tip_comanda;
+    if (comanda_str_token.hasMoreTokens()) {
+      tip_comanda = comanda_str_token.getNextToken();
+    } else {
+      throw NotEnoughTokens("lipseste tipul pizzei");
+    }
 
     /* verificam daca comanda este valida */
     if (!(map_comenzi_pizza.find(tip_comanda) != map_comenzi_pizza.end())) {
@@ -38,11 +112,16 @@ private:
       return;
     }
 
+    /* citim comanda de pizza si o adaugam in meniul potrivit tipului ei */
     switch (map_comenzi_pizza[tip_comanda]) {
     case PizzaType::LOCAL:
       pizza = new Pizza();
       try {
-        iss_comanda >> *pizza;
+        /* obtinem ingredientele */
+        std::vector<Ingredient *> ingrediente =
+            citesteIngrediente(comanda_str_token);
+        pizza->setIngrediente(ingrediente);
+
         meniu_pizza_local += pizza;
       } catch (const IsEmpty &e) {
         std::cout << e.what() << '\n';
@@ -62,7 +141,21 @@ private:
     case PizzaType::ONLINE:
       pizza = new PizzaOnline();
       try {
-        iss_comanda >> *dynamic_cast<PizzaOnline *>(pizza);
+        /* obtinem ingredientele */
+        std::vector<Ingredient *> ingrediente =
+            citesteIngrediente(comanda_str_token);
+        dynamic_cast<PizzaOnline *>(pizza)->setIngrediente(ingrediente);
+
+        /* obtinem distanta de livrare */
+        if (comanda_str_token.hasMoreTokens()) {
+          std::string str_tok = comanda_str_token.getNextToken();
+          double distanta = StringToDouble(str_tok);
+          dynamic_cast<PizzaOnline *>(pizza)->setDistanta(distanta);
+        } else {
+          throw NotEnoughTokens(
+              "lipseste distanta pentru comanda de pizza online");
+        }
+
         meniu_pizza_online += dynamic_cast<PizzaOnline *>(pizza);
       } catch (std::exception &e) { /* prinde toate tipurile de exceptii */
         std::cout << e.what() << '\n';
@@ -72,7 +165,12 @@ private:
     case PizzaType::VEGETARIANA_LOCALA:
       pizza = new PizzaVegetarianaLocala();
       try {
-        iss_comanda >> *dynamic_cast<PizzaVegetarianaLocala *>(pizza);
+        /* obtinem ingredientele */
+        std::vector<Ingredient *> ingrediente =
+            citesteIngrediente(comanda_str_token);
+        dynamic_cast<PizzaVegetarianaLocala *>(pizza)->setIngrediente(
+            ingrediente);
+
         meniu_pizza_local += dynamic_cast<PizzaVegetarianaLocala *>(pizza);
       } catch (const std::invalid_argument &e) {
         std::cout << e.what() << '\n';
@@ -82,7 +180,22 @@ private:
     case PizzaType::VEGETARIANA_ONLINE:
       pizza = new PizzaVegetarianaOnline();
       try {
-        iss_comanda >> *dynamic_cast<PizzaVegetarianaOnline *>(pizza);
+        /* obtinem ingredientele */
+        std::vector<Ingredient *> ingrediente =
+            citesteIngrediente(comanda_str_token);
+        dynamic_cast<PizzaVegetarianaOnline *>(pizza)->setIngrediente(
+            ingrediente);
+
+        /* obtinem distanta de livrare */
+        if (comanda_str_token.hasMoreTokens()) {
+          std::string str_tok = comanda_str_token.getNextToken();
+          double distanta = StringToDouble(str_tok);
+          dynamic_cast<PizzaVegetarianaOnline *>(pizza)->setDistanta(distanta);
+        } else {
+          throw NotEnoughTokens(
+              "lipseste distanta pentru comanda de pizza online");
+        }
+
         meniu_pizza_veg_online += dynamic_cast<PizzaVegetarianaOnline *>(pizza);
       } catch (std::exception &e) { /* prinde toate tipurile de exceptii */
         std::cout << e.what() << '\n';
@@ -203,6 +316,18 @@ public:
 
 int main() {
   MeniuInteractiv meniu_interactiv;
+
+  /* for testing */
+  /* std::ifstream fin("comenzi.in"); */
+  /* std::string str; */
+  /* while (getline(fin, str)) { */
+  /* StringTokenizer str_token(str, " "); */
+  /* while (str_token.hasMoreTokens()) { */
+  /* std::cout << "|" << str_token.getNextToken() << "|\n"; */
+  /* } */
+  /* break; */
+  /* } */
+  /* fin.close(); */
 
   return 0;
 }

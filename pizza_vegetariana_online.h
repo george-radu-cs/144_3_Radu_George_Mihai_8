@@ -13,6 +13,10 @@ public:
 
   virtual ~PizzaVegetarianaOnline();
 
+  virtual void setIngrediente(const std::vector<Ingredient *> &ingrediente) override;
+
+  virtual void setDistanta(const double distanta) override;
+
   virtual double pret() const override;
 
   /* operatorul=, in cazul in care se fac mai multe comenzi de

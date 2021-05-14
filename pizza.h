@@ -25,6 +25,8 @@ public:
 
   virtual ~Pizza();
 
+  virtual void setIngrediente(const std::vector<Ingredient *> &ingrediente);
+
   /* calculeaza pretul pizzei (pret ingrediente + manopera) */
   virtual double pret() const override;
 

@@ -8,6 +8,12 @@ PizzaOnline::PizzaOnline(const PizzaOnline &pizza) : Pizza(pizza) {
 
 PizzaOnline::~PizzaOnline() {}
 
+void PizzaOnline::setIngrediente(const std::vector<Ingredient *> &ingrediente) {
+  Pizza::setIngrediente(ingrediente);
+}
+
+void PizzaOnline::setDistanta(const double distanta) { m_distanta = distanta; }
+
 double PizzaOnline::pret() const {
   /* obtinem pretul normal pentru pizza */
   double pret = Pizza::pret();
@@ -36,7 +42,7 @@ std::istream &operator>>(std::istream &in, PizzaOnline &pizza) {
   std::string str; /* vom retine inputul intr-un string pe care vom incerca sa
                     il convertim intr-un double */
   in >> str;
-  pizza.m_distanta = StringToInt(str);
+  pizza.m_distanta = StringToDouble(str);
 
   return in;
 }

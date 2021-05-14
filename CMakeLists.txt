@@ -28,10 +28,15 @@ add_library(
   meniu
   meniu.h)
 
+add_library(
+  string_tokenizer
+  string_tokenizer.h
+  string_tokenizer.cpp)
+
 set_target_properties(meniu PROPERTIES LINKER_LANGUAGE CXX)
 
 add_executable(144_3_Radu_George_Mihai_8 ${SOURCES} main.cpp)
-target_link_libraries(144_3_Radu_George_Mihai_8 PRIVATE meniu pizza ingredient)
+target_link_libraries(144_3_Radu_George_Mihai_8 PRIVATE meniu pizza ingredient string_tokenizer)
 
 target_compile_features(144_3_Radu_George_Mihai_8 PRIVATE cxx_lambda_init_captures)
 

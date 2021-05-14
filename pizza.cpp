@@ -20,6 +20,13 @@ Pizza::~Pizza() {
   m_ingrediente.clear();
 }
 
+void Pizza::setIngrediente(const std::vector<Ingredient *> &ingrediente) {
+  for (std::vector<Ingredient *>::const_iterator it = ingrediente.begin();
+       it != ingrediente.end(); it++) {
+    m_ingrediente.push_back(*it);
+  }
+}
+
 double Pizza::pret() const {
   double pret{0};
 

@@ -16,6 +16,10 @@ public:
 
   virtual ~PizzaOnline();
 
+  virtual void setIngrediente(const std::vector<Ingredient *> &ingrediente) override;
+
+  virtual void setDistanta(const double distanta);
+
   /* calculeaza pretul pizzei: pretul pizzei daca era servita local + 5% din
    * acest pret la fiecare 10Km din distanta de livrare */
   virtual double pret() const override;

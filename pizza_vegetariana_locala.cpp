@@ -8,6 +8,10 @@ PizzaVegetarianaLocala::PizzaVegetarianaLocala(
 
 PizzaVegetarianaLocala::~PizzaVegetarianaLocala() {}
 
+void PizzaVegetarianaLocala::setIngrediente(const std::vector<Ingredient *> &ingrediente){
+  Pizza::setIngrediente(ingrediente);
+}
+
 double PizzaVegetarianaLocala::pret() const { return Pizza::pret(); }
 
 PizzaVegetarianaLocala &

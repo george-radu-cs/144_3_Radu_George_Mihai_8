@@ -1,6 +1,20 @@
 #include <exception>
 #include <string>
 
+class NotEnoughTokens : public std::exception {
+protected:
+  std::string message;
+
+  void setMessage(const std::string &msg) { message = msg; }
+
+public:
+  NotEnoughTokens(const std::string msg) : message(msg) {
+    setMessage(std::string("Not enough values: ") + msg);
+  }
+
+  virtual const char *what() const noexcept override { return message.c_str(); }
+};
+
 /* tipurile de exceptii de la citirea datelor unei pizza */
 class PizzaException : public std::exception {
 protected:

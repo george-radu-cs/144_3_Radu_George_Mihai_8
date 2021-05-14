@@ -8,6 +8,14 @@ PizzaVegetarianaOnline::PizzaVegetarianaOnline(
 
 PizzaVegetarianaOnline::~PizzaVegetarianaOnline() {}
 
+void PizzaVegetarianaOnline::setIngrediente(const std::vector<Ingredient *> &ingrediente){
+  PizzaOnline::setIngrediente(ingrediente);
+}
+
+void PizzaVegetarianaOnline::setDistanta(const double distanta){
+  PizzaOnline::setDistanta(distanta);
+}
+
 double PizzaVegetarianaOnline::pret() const { return Pizza::pret(); }
 
 PizzaVegetarianaOnline &
